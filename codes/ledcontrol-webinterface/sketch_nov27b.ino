@@ -8,7 +8,6 @@ WiFiServer server(80);
 
 void setup() 
 {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   WiFi.begin("56", "emayush56");
   while(WiFi.status() != WL_CONNECTED)
@@ -18,7 +17,7 @@ void setup()
   }
   Serial.println();
   Serial.println("NodeMCU is connected!");
-  Serial.println(WiFi.localIP()); //192.168.46.147
+  Serial.println(WiFi.localIP());
   server.begin();
   pinMode(led, OUTPUT);
   pinMode(led2, OUTPUT);
@@ -26,8 +25,7 @@ void setup()
 
 void loop() 
 {
-  // put your main code here, to run repeatedly:
-  client = server.available();  //Gets a client that is connected to the server and has data available for reading.    
+  client = server.available();    
   if (client == 1)
   {  
     String request =  client.readStringUntil('\n');
